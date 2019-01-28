@@ -1,0 +1,28 @@
+#N canvas -960 -157 552 306 10;
+#X msg 35 138 listen 0;
+#X msg 59 167 listen 8000;
+#X obj 35 216 oscparse;
+#X obj 35 237 print OSC;
+#X msg 245 37 disconnect;
+#X obj 232 250 netsend -u -b;
+#X obj 35 195 netreceive -u -b;
+#X obj 356 209 list prepend send;
+#X obj 356 230 list trim;
+#X obj 355 42 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 7200 1;
+#X obj 355 188 oscformat 1 volume;
+#X msg 431 158 set 1 volume;
+#X msg 433 139 set 1 pan;
+#X msg 232 17 connect 172.20.10.1 9000;
+#X connect 0 0 6 0;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 2 0;
+#X connect 7 0 8 0;
+#X connect 8 0 5 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
+#X connect 11 0 10 0;
+#X connect 12 0 10 0;
+#X connect 13 0 5 0;
